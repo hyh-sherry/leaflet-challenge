@@ -56,21 +56,22 @@ d3.json(queryUrl, function(data) {
 
 
 function getColor(d) {
-  if (d > 0 && d <= 1) {return "LawnGreen"}
-  else if (d > 1 && d <= 2) {return "YellowGreen"}
-  else if (d > 2 && d <= 3) {return "Orange"}
-  else if (d > 3 && d <= 4) {return "LightSalmon"}
-  else {return "LightCoral"}
+  if (d >= 0 && d < 1) {return "LawnGreen"}
+  else if (d >= 1 && d < 2) {return "YellowGreen"}
+  else if (d >= 2 && d < 3) {return "Orange"}
+  else if (d >= 3 && d < 4) {return "LightSalmon"}
+  else if (d >= 4 && d < 5) {return "LightCoral"}
+  else {return "IndianRed"}
   };
 
 var legend = L.control({position: "bottomright"});
 
 legend.onAdd = function (map) {
   var div = L.DomUtil.create("div", "info legend");
-  magnitude = ["1","2","3","4","5"];
-  colors = ["LawnGreen","YellowGreen","Gold","Orange","LightSalmon","LightCoral"]
-  for (var i = 0; i < magnitude.length; i++) {
-    div.innerHTML += "<i style='background:" + getColor(magnitude[i]) + "'></i> " + magnitude[i] + (magnitude[i + 1] ? '&ndash;' + magnitude[i + 1] + '<br>' : '+');
+  level = ["0","1","2","3","4","5"];
+  colors = ["LawnGreen","YellowGreen","Orange","LightSalmon","LightCoral","IndianRed"]
+  for (var i = 0; i < level.length; i++) {
+    div.innerHTML += "<i style='background:" + getColor(level[i]) + "'></i> " + level[i] + (level[i + 1] ? '&ndash;' + level[i + 1] + '<br>' : '+');
   }
   return div;
   };

@@ -80,9 +80,9 @@ d3.json(queryUrl, function(data) {
   var earthquakes = L.layerGroup(earthquakesMarkers);
   var faultline = L.layerGroup(plateLines);
 
-
-  console.log(earthquakesMarkers)
-  console.log(plateLines)
+  // console.log(earthquakesMarkers)
+  // console.log(plateLines)
+  
   // Create an overlay object
   var overlayMaps = {
   "Fault Lines": faultline,
